@@ -47,17 +47,16 @@ class App extends Component {
       values.isAdultsMaximum = false;
       values.isChildrenMaximum = false;
       if (type === 'minus') {
-
-
         values.rooms = values.rooms - 1;
         let difference = (values.adults + values.children) - (values.rooms) * 4
         if (difference > 0) {
           if (difference <= values.children) {
             values.children = values.children - difference;
           } else {
-            values.children = 0
+
             let allowedPerson = difference - values.children;
             values.adults = values.adults - allowedPerson;
+            values.children = 0
           }
         }
       } else {
